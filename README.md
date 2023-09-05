@@ -86,16 +86,16 @@ Data Cleaning in power query: -
   
     **Bowler Wickets** = CONCATENATE(SUM(ipl_ball_by_ball_2008_2022[iswicket_delivery]), " Wickets")
 
--	**Find out Bowler Economy rate**: (dividing the number of runs conceded by a bowler by the number of overs bowled.)
+**- Find out Bowler Economy rate:** (dividing the number of runs conceded by a bowler by the number of overs bowled.)
   
    **Economy rate** = DIVIDE(SUMX(FILTER(ipl_ball_by_ball_2008_2022, ipl_ball_by_ball_2008_2022[extra_type] <> "Legbyes" &&   ipl_ball_by_ball_2008_2022[extra_type]<> "Byes"), ipl_ball_by_ball_2008_2022[total_run]),(COUNT(ipl_ball_by_ball_2008_2022[overs]))/6)
 
--	**Find out Bowler Average rate:** (dividing the numbers of runs conceded by a bowler by the number of wickets they have taken)
+**-	Find out Bowler Average rate:** (dividing the numbers of runs conceded by a bowler by the number of wickets they have taken)
   
   **Average** = 
     DIVIDE(SUMX(FILTER(ipl_ball_by_ball_2008_2022, ipl_ball_by_ball_2008_2022[extra_type] <> "Legbyes" && ipl_ball_by_ball_2008_2022[extra_type]<>     "Byes"), ipl_ball_by_ball_2008_2022[total_run]),(SUM(ipl_ball_by_ball_2008_2022[iswicket_delivery])))
 
--	**Find out Batter Strike rate:** (Number of runs scored / Number of balls faced) * 100
+**-	Find out Batter Strike rate:** (Number of runs scored / Number of balls faced) * 100
   
   **Strike Rate** = 100*(SUM(ipl_ball_by_ball_2008_2022[batsman_run])/COUNT(ipl_ball_by_ball_2008_2022[ball_number]))
 
